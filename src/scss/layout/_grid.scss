@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as *;
+
+/* Reusable mixins */
+@mixin grid { display: grid; gap: $gutter; }
+@mixin grid-2 { grid-template-columns: repeat(2, 1fr); }
+@mixin grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@mixin grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+
+/* Optional utility classes (still available in HTML) */
+.grid { @include grid; }
+.grid--2 { @include grid-2; }
+.grid--3 { @include grid-3; }
+.grid--auto-fit { @include grid-auto-fit; }
+
+@media (max-width: 768px){
+  .grid--2, .grid--3 { grid-template-columns: 1fr; }
+}

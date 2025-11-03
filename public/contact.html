@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — EcoTrips</title>
+  <meta name="description" content="Get in touch with EcoTrips. Ask about dates, pricing, itineraries, and custom eco-tours." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <meta name="color-scheme" content="dark light" />
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a> › Contact
+      </nav>
+      <h1>Ready to plan?</h1>
+      <p class="lead">Tell us your dates and style — we’ll craft the perfect eco escape.</p>
+    </div>
+  </section>
+
+  <main class="container section" id="main">
+    <form id="contact-form" class="form" novalidate>
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        <p class="help" id="email-help">We’ll only use this to reply to your enquiry.</p>
+      </div>
+
+      <div>
+        <label for="phone">Phone <span aria-hidden="true" style="opacity:.7">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" />
+      </div>
+
+      <div>
+        <label for="tour">Choose a tour</label>
+        <select id="tour" name="tour" required>
+          <option value="">Select…</option>
+          <option>Rainforest Trek — Brazil (5 days)</option>
+          <option>Alpine Escape — Switzerland (7 days)</option>
+          <option>Coral Coast — Australia (4 days)</option>
+          <option>Himalayan Trail — India (8 days)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="dates">Preferred dates</label>
+        <input id="dates" name="dates" placeholder="e.g., 10–16 Dec 2025" />
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us about your group size, budget, interests…" aria-describedby="msg-help"></textarea>
+        <p class="help" id="msg-help">More detail helps us reply with a tailored plan.</p>
+      </div>
+
+      <div>
+        <label style="display:flex;gap:.5rem;align-items:flex-start">
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>I agree to the <a href="/terms.html">Terms</a> and have read the <a href="/privacy.html">Privacy Policy</a>.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn--primary">Send inquiry</button>
+
+      <noscript>
+        <p class="help">JavaScript is off; the form won’t show a success alert but will still submit if connected to a backend.</p>
+      </noscript>
+    </form>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <div data-include="/partials/floating-buttons.html"></div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

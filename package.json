@@ -1,0 +1,21 @@
+{
+  "name": "advanced-css-course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server public",
+    "sass": "sass --watch src/scss:public/assets/css --style=expanded",
+    "build": "sass src/scss:public/assets/css --style=compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.93.3"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
+  }
+}

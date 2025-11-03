@@ -1,0 +1,10 @@
+.card{
+  background:var(--clr-surface);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.5rem;
+  display:flex; flex-direction:column; gap:.75rem;
+  &__title{ font-weight:700 }
+  &__meta{ opacity:.8; font-size:.95rem }
+  &__actions{ margin-top:auto; display:flex; gap:.75rem; align-items:center }
+}

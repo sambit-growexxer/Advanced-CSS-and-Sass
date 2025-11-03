@@ -1,0 +1,22 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+.hero{
+  position:relative; padding:clamp(6rem,10vw,10rem) 0; overflow:clip;
+  background: radial-gradient(80rem 60rem at 10% -10%, rgba(106,196,255,.25), transparent),
+              linear-gradient(160deg, var(--clr-surface), var(--clr-bg));
+  color:var(--clr-text);
+  &__inner{ @include container; display:grid; gap:$gutter; align-items:center }
+  &__title{ font-size:clamp(2.4rem,6vw,4rem); line-height:1.05 }
+  &__subtitle{ opacity:.9; max-width: 60ch }
+  &__cta{ display:flex; gap:1rem; flex-wrap:wrap }
+  &__shape{
+    position:absolute; inset:auto -10% -10% auto; width: clamp(24rem, 40vw, 48rem); aspect-ratio: 4/3;
+    background: conic-gradient(from 180deg, var(--clr-accent), var(--clr-accent-2));
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    filter: blur(18px) saturate(140%);
+    animation: float 8s $easing infinite alternate;
+    opacity:.35; pointer-events:none;
+  }
+}
+@keyframes float{ from{ transform: translateY(0) rotate(-2deg) } to{ transform: translateY(-16px) rotate(2deg) } }
+

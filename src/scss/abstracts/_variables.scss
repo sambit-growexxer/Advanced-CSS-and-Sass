@@ -1,0 +1,19 @@
+:root {
+  --clr-bg: #0e141b;
+  --clr-surface: #111a22;
+  --clr-text: #e6eef5;
+  --clr-accent: #2ad1a3;
+  --clr-accent-2: #6bc2ff;
+  --radius: 1rem;
+  --shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --clr-bg: #f7fafc;
+    --clr-surface: #ffffff;
+    --clr-text: #14191f;
+  }
+}
+$container: min(1100px, 92vw);
+$gutter: 2rem;
+$easing: cubic-bezier(.2,.8,.2,1);

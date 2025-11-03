@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.nav{
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(17,26,34,.70);
+  backdrop-filter: blur(8px);
+}
+
+.nav__inner{
+  @include container;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.75rem 0;
+}
+
+.nav__brand{ display:inline-flex; align-items:center; gap:.5rem; color:var(--clr-text); text-decoration:none; }
+
+.nav__menu{
+  display:flex;                      /* ✅ always visible by default */
+  align-items:center; gap:1rem;
+}
+.nav__menu a{ color:var(--clr-text); text-decoration:none; opacity:.9; position:relative; }
+
+/* underline hover */
+.nav__menu a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:currentColor;
+  transform:scaleX(0); transform-origin:left; transition:transform .25s $easing; opacity:.8;
+}
+.nav__menu a:hover::after, .nav__menu a:focus-visible::after{ transform:scaleX(1); }
+
+/* Toggle button hidden on desktop */
+.nav__toggle{
+  @include btn-reset;
+  display:none;
+  width:40px; height:40px; border:1px solid rgba(255,255,255,.15);
+  border-radius:.6rem; color:var(--clr-text); place-items:center;
+}
+
+/* Sticky shadow on scroll */
+.nav--scrolled{ box-shadow: 0 10px 25px rgba(0,0,0,.25); background: rgba(17,26,34,.9); }
+
+/* === Mobile (<768px) === */
+@media (max-width: 768px){
+  .nav__toggle{ display:grid; }        /* show burger */
+  .nav__menu{
+    display:none;                      /* hidden until opened */
+    position:absolute; right:1rem; top:calc(100% + .5rem);
+    flex-direction:column; gap:.5rem;
+    background:var(--clr-surface); padding:.75rem; border-radius:.75rem; box-shadow:var(--shadow);
+    min-width:220px;
+  }
+  .nav__menu[data-open]{ display:flex; }  /* open state */
+}
+
+/* harden desktop visibility in case older rules linger */
+@media (min-width: 769px){
+  .nav .nav__menu{ display:flex !important; }
+  .nav .nav__toggle{ display:none !important; }
+}
